@@ -37,8 +37,8 @@
                                         <th class="text-center">Vehicle</th>
                                         <th class="text-center">Driver</th>
                                         <th class="text-center">Liter</th>
-                                        <th class="text-center">Price/Liter</th>
-                                        <th class="text-center">Aount</th>
+                                        <!-- <th class="text-center">Price/Liter</th> -->
+                                        <!-- <th class="text-center">Amount</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,16 +53,16 @@
                                             <span t-esc="line['driver_name']"/>
                                         </td>
                                         <td class="text-center">
-                                            <span t-esc="'{:,}'.format(line['price_per_liter'])"/>
-                                        </td>
-                                        <td class="text-center">
                                             <span t-esc="'{:,}'.format(line['liter'])"/>
                                             <t t-set="total_liter" t-value="total_liter + line['liter']"/>
+                                        </td>
+                                        <!-- <td class="text-center">
+                                            <span t-esc="'{:,}'.format(line['price_per_liter'])"/>
                                         </td>
                                         <td class="text-center">
                                             <span t-esc="'{:,}'.format(line['amount'])"/>
                                             <t t-set="total_amount" t-value="total_amount + line['amount']"/>
-                                        </td>
+                                        </td> -->
                                     </tr>            
                                 </tbody>
                             </table>
@@ -74,9 +74,9 @@
                                             <td class="text-right">
                                                 <span t-esc="'{:,}'.format(total_liter)"/>
                                             </td>
-                                            <td class="text-right">
+                                            <!-- <td class="text-right">
                                                 <span t-esc="'{:,}'.format(total_amount)"/>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     </table>
                                 </div>

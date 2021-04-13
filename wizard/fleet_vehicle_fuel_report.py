@@ -37,7 +37,12 @@ class FleetVehicleFuelReport(models.TransientModel):
                 row["vehicle_tag_name"] = log_fuel.vehicle_id.tag_ids[0].name
             else:
                 row["vehicle_tag_name"] = "-"
-            row["driver_name"] = log_fuel.vehicle_id.driver_id.name
+
+            driver_name = log_fuel.vehicle_id.driver_id.name
+            if driver_name and driver_name.find("[") != -1:
+                driver_name = driver_name[0: int( driver_name.find("[") ) ]
+            row["driver_name"] = driver_name
+
             row["liter"] = log_fuel.liter
             row["price_per_liter"] = log_fuel.price_per_liter
             row["amount"] = log_fuel.amount
